@@ -1,0 +1,78 @@
+<app-nav> </app-nav>
+
+<!--<p>viewproduct works!</p>-->
+<div class= 'border border-primary rounded m-1 mx-lg-4 my-lg-3 p-2 ' *ngFor='let product of product' >
+    
+    <div class = 'row text-center'>
+
+        <div class = 'col-lg p-3 text-center '>
+            <img src="assets/images/{{product.Product_image}}" class=" img-fluid rounded mx-auto d-block h-75 " alt="...">
+
+            <h6 class='m-1'>Starting Bid : {{product.Product_minimumprice}} </h6>
+           
+        </div>
+
+        <div class = 'col-lg p-2'>
+
+            <h2><p>{{product.Product_name}}</p></h2>
+            <div class = 'row m-2'>
+
+                <div class = 'col-sm'>
+                    Current Bid : <h3>₹{{product.current_bid}}</h3> 
+                </div>
+                
+                <div class = 'col-sm'>
+                    Ends on : <h3> {{product.Product_endtime}} </h3>
+                </div>
+            </div>
+             
+             <div class='m-2'>
+                <h6>Product Description</h6>
+                <p>
+                    {{product.Product_description}}
+                </p>
+
+             </div>
+
+             <div class = 'row m-2'*ngIf="buyerlogin">
+
+                <div class = 'col-sm'>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Enter Bid</label>
+                        <div class="mb-3">
+                             <input type="number" id="bidvalue" name="bidvalue" #bidvalue class="form-control" id="exampleFormControlInput1"
+                              placeholder="enter bid here">
+                          </div>
+                      </div>
+
+                      
+                    
+                </div>
+                
+                <div class = 'col-sm'>
+                    <button type="button"  (click)="bid(bidvalue.value)" class="btn btn-primary btn-lg">Bid Now</button>
+                </div>
+            </div>
+
+            <div class = 'row m-2'>
+
+                <div class = 'col-md'>
+                    <h4>Contact Seller</h4>
+                    <p>{{product.seller_name}}<br>
+                    {{product.seller_district}},{{product.seller_state}}<br>
+                    PH : {{product.seller_phone}}</p>
+                </div>
+                
+                <div class = 'col-md'>
+                    <h4>Payment Options</h4>
+                    <p> {{product.Product_paymentoptions}}</p>
+                </div>
+            </div>
+             
+            
+        </div>
+
+
+    </div>
+</div>
+
